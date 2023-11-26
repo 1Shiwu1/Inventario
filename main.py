@@ -7,6 +7,16 @@ from datetime import datetime
 
 def reconocer_voz():
     # TODO: Implementar la lógica para reconocer voz
+    recognizer = sr.Recognizer()
+   
+    mic = sr.Microphone()
+   
+    with mic as source:
+        audio = recognizer.listen(source)
+
+    text = recognizer.recognize_google(audio, language = 'ES')
+    
+    print(f'Has dicho: {text}')
 
 
 def exportar_a_excel(inventario):
